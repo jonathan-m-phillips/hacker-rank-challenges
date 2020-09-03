@@ -21,7 +21,7 @@ public class Solution {
 //        System.out.println(b);
 //        System.out.println(c);
 
-
+//--------------------------------------------------------------
         // Given an integer, , perform the following conditional actions:
         //
         //If n is odd, print Weird
@@ -43,17 +43,70 @@ public class Solution {
 //            System.out.println("Weird");
 //        }
 
+//--------------------------------------------------------------
         //you must read an integer, a double, and a String from stdin, then print the values
         // according to the instructions in the Output Format section below.
-        Scanner scan = new Scanner(System.in);
-        int i = scan.nextInt();
-        double d = scan.nextDouble();
-        scan.nextLine();
-        String s = scan.nextLine();
+//        Scanner scan = new Scanner(System.in);
+//        int i = scan.nextInt();
+//        double d = scan.nextDouble();
+//        scan.nextLine();
+//        String s = scan.nextLine();
+//
+//        System.out.println("String: " + s);
+//        System.out.println("Double: " + d);
+//        System.out.println("Int: " + i);
 
-        System.out.println("String: " + s);
-        System.out.println("Double: " + d);
-        System.out.println("Int: " + i);
+//--------------------------------------------------------------
+//        Scanner sc=new Scanner(System.in);
+//        System.out.println("================================");
+//        for(int i=0;i<3;i++){
+//            String s1=sc.next();
+//            int x=sc.nextInt();
+//            if (x < 10) {
+//                System.out.printf("%-15s0%d0\n", s1, x);
+//            } else if (x < 100) {
+//                System.out.printf("%-15s0%d\n", s1, x);
+//            } else if (x > 99) {
+//                System.out.printf("%-15s%d\n", s1, x);
+//            }
+//        }
+//        System.out.println("================================");
 
+//--------------------------------------------------------------
+//        Scanner scanner = new Scanner(System.in);
+//        int N = scanner.nextInt();
+//        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+//
+//        scanner.close();
+//
+//        for (int i = 1; i < 11; i++) {
+//            int n = N * i;
+//            System.out.println(N + " x " + i + " = " + n);
+//        }
+
+//--------------------------------------------------------------
+        // You are given q queries in the form of a, b, and n. For each query,
+        // print the series corresponding to the given a, b, and n values as a
+        // single line of n space-separated integers.
+        Scanner in = new Scanner(System.in);
+        int t=in.nextInt();
+        int count = 1;
+        for(int i=0;i<t;i++){
+            int a = in.nextInt();
+            int b = in.nextInt();
+            int n = in.nextInt();
+            arrange(a, b, n);
+        }
+        in.close();
+
+    }
+
+    public static void arrange(int a,int b,int n){
+        int sum = a+b;
+        for(int j=1; j<=n; j++){
+            System.out.print(sum+" ");
+            sum+=((Math.pow(2,j))*b);
+        }
+        System.out.println();
     }
 }
