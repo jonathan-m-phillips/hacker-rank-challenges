@@ -7,11 +7,11 @@ import java.math.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
-public class Solution {
+//public class Solution {
 
 
 //    public static void main(String[] args) {
-    // You must read 3 integers from stdin and then print them to stdout. Each integer must be printed on a new line.
+// You must read 3 integers from stdin and then print them to stdout. Each integer must be printed on a new line.
 //        Scanner scan = new Scanner(System.in);
 //        int a = scan.nextInt();
 //        int b = scan.nextInt();
@@ -22,12 +22,12 @@ public class Solution {
 //        System.out.println(c);
 
 //--------------------------------------------------------------
-    // Given an integer, , perform the following conditional actions:
-    //
-    //If n is odd, print Weird
-    //If n is even and in the inclusive range of 2 to 5, print Not Weird
-    //If n is even and in the inclusive range of 6 to 20, print Weird
-    //If n is even and greater than 20, print Not Weird
+// Given an integer, , perform the following conditional actions:
+//
+//If n is odd, print Weird
+//If n is even and in the inclusive range of 2 to 5, print Not Weird
+//If n is even and in the inclusive range of 6 to 20, print Weird
+//If n is even and greater than 20, print Not Weird
 //        final Scanner scanner = new Scanner(System.in);
 //
 //        int N = scanner.nextInt();
@@ -44,8 +44,8 @@ public class Solution {
 //        }
 
 //--------------------------------------------------------------
-    //you must read an integer, a double, and a String from stdin, then print the values
-    // according to the instructions in the Output Format section below.
+//you must read an integer, a double, and a String from stdin, then print the values
+// according to the instructions in the Output Format section below.
 //        Scanner scan = new Scanner(System.in);
 //        int i = scan.nextInt();
 //        double d = scan.nextDouble();
@@ -85,9 +85,9 @@ public class Solution {
 //        }
 
 //--------------------------------------------------------------
-    // You are given q queries in the form of a, b, and n. For each query,
-    // print the series corresponding to the given a, b, and n values as a
-    // single line of n space-separated integers.
+// You are given q queries in the form of a, b, and n. For each query,
+// print the series corresponding to the given a, b, and n values as a
+// single line of n space-separated integers.
 //        Scanner in = new Scanner(System.in);
 //        int t=in.nextInt();
 //        int count = 1;
@@ -141,7 +141,6 @@ public class Solution {
 //        scanner.close();
 
 //--------------------------------------------------------------
-//    }
 
 //    static int B;
 //    static int H;
@@ -164,46 +163,89 @@ public class Solution {
 //        }
 //    }
 
-    public static void main(String[] args) {
+//--------------------------------------------------------------
 
-        DoNotTerminate.forbidExit();
+//    public static void main(String[] args) {
+//
+//        DoNotTerminate.forbidExit();
+//
+//        try {
+//            Scanner in = new Scanner(System.in);
+//            int n = in.nextInt();
+//            in.close();
+//            String s = Integer.toString(n);
+//
+//
+//            if (n == Integer.parseInt(s)) {
+//                System.out.println("Good job");
+//            } else {
+//                System.out.println("Wrong answer.");
+//            }
+//        } catch (DoNotTerminate.ExitTrappedException e) {
+//            System.out.println("Unsuccessful Termination!!");
+//        }
+//    }
+//}
+//
+////The following class will prevent you from terminating the code using exit(0)!
+//class DoNotTerminate {
+//
+//    public static class ExitTrappedException extends SecurityException {
+//
+//        private static final long serialVersionUID = 1;
+//    }
+//
+//    public static void forbidExit() {
+//        final SecurityManager securityManager = new SecurityManager() {
+//            @Override
+//            public void checkPermission(Permission permission) {
+//                if (permission.getName().contains("exitVM")) {
+//                    throw new ExitTrappedException();
+//                }
+//            }
+//        };
+//        System.setSecurityManager(securityManager);
+//    }
 
-        try {
-            Scanner in = new Scanner(System.in);
-            int n = in.nextInt();
-            in.close();
-            String s = Integer.toString(n);
+//--------------------------------------------------------------
 
+class Result {
 
-            if (n == Integer.parseInt(s)) {
-                System.out.println("Good job");
-            } else {
-                System.out.println("Wrong answer.");
-            }
-        } catch (DoNotTerminate.ExitTrappedException e) {
-            System.out.println("Unsuccessful Termination!!");
-        }
+    public static String findDay(int month, int day, int year) {
+        Calendar calendar = Calendar.getInstance();
+
+        calendar.set(Calendar.MONTH, month-1);
+        calendar.set(Calendar.DAY_OF_MONTH, day);
+        calendar.set(Calendar.YEAR, year);
+
+        String[] week = {"SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"};
+
+        return week[calendar.get(Calendar.DAY_OF_WEEK)-1];
+    }
+
+}
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+
+        int month = Integer.parseInt(firstMultipleInput[0]);
+
+        int day = Integer.parseInt(firstMultipleInput[1]);
+
+        int year = Integer.parseInt(firstMultipleInput[2]);
+
+        String res = Result.findDay(month, day, year);
+
+        bufferedWriter.write(res);
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
     }
 }
 
-//The following class will prevent you from terminating the code using exit(0)!
-class DoNotTerminate {
-
-    public static class ExitTrappedException extends SecurityException {
-
-        private static final long serialVersionUID = 1;
-    }
-
-    public static void forbidExit() {
-        final SecurityManager securityManager = new SecurityManager() {
-            @Override
-            public void checkPermission(Permission permission) {
-                if (permission.getName().contains("exitVM")) {
-                    throw new ExitTrappedException();
-                }
-            }
-        };
-        System.setSecurityManager(securityManager);
-    }
-
-}
+//  }
+//}
