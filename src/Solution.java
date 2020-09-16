@@ -10,8 +10,8 @@ import java.util.regex.*;
 public class Solution {
 
 
-    public static void main(String[] args) {
-        // You must read 3 integers from stdin and then print them to stdout. Each integer must be printed on a new line.
+//    public static void main(String[] args) {
+    // You must read 3 integers from stdin and then print them to stdout. Each integer must be printed on a new line.
 //        Scanner scan = new Scanner(System.in);
 //        int a = scan.nextInt();
 //        int b = scan.nextInt();
@@ -22,12 +22,12 @@ public class Solution {
 //        System.out.println(c);
 
 //--------------------------------------------------------------
-        // Given an integer, , perform the following conditional actions:
-        //
-        //If n is odd, print Weird
-        //If n is even and in the inclusive range of 2 to 5, print Not Weird
-        //If n is even and in the inclusive range of 6 to 20, print Weird
-        //If n is even and greater than 20, print Not Weird
+    // Given an integer, , perform the following conditional actions:
+    //
+    //If n is odd, print Weird
+    //If n is even and in the inclusive range of 2 to 5, print Not Weird
+    //If n is even and in the inclusive range of 6 to 20, print Weird
+    //If n is even and greater than 20, print Not Weird
 //        final Scanner scanner = new Scanner(System.in);
 //
 //        int N = scanner.nextInt();
@@ -44,8 +44,8 @@ public class Solution {
 //        }
 
 //--------------------------------------------------------------
-        //you must read an integer, a double, and a String from stdin, then print the values
-        // according to the instructions in the Output Format section below.
+    //you must read an integer, a double, and a String from stdin, then print the values
+    // according to the instructions in the Output Format section below.
 //        Scanner scan = new Scanner(System.in);
 //        int i = scan.nextInt();
 //        double d = scan.nextDouble();
@@ -85,9 +85,9 @@ public class Solution {
 //        }
 
 //--------------------------------------------------------------
-        // You are given q queries in the form of a, b, and n. For each query,
-        // print the series corresponding to the given a, b, and n values as a
-        // single line of n space-separated integers.
+    // You are given q queries in the form of a, b, and n. For each query,
+    // print the series corresponding to the given a, b, and n values as a
+    // single line of n space-separated integers.
 //        Scanner in = new Scanner(System.in);
 //        int t=in.nextInt();
 //        int count = 1;
@@ -139,5 +139,29 @@ public class Solution {
 //            System.out.println(++line + " " + scanner.nextLine());
 //        } while (scanner.hasNext());
 //        scanner.close();
+
+//--------------------------------------------------------------
+//    }
+
+    static int B;
+    static int H;
+    static boolean flag = true;
+
+    static {
+        Scanner scanner = new Scanner(System.in);
+        B = scanner.nextInt();
+        H = scanner.nextInt();
+        if (B <=0 || H <= 0) {
+            System.out.println("java.lang.Exception: Breadth and height must be positive");
+            flag = false;
+        }
     }
+
+    public static void main(String[] args) {
+        if (flag) {
+            int area = B * H;
+            System.out.print(area);
+        }
+    }
+
 }
