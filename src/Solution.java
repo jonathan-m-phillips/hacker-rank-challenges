@@ -9,7 +9,6 @@ import java.util.regex.*;
 public class Solution {
 
 
-
     public static void main(String[] args) {
         // You must read 3 integers from stdin and then print them to stdout. Each integer must be printed on a new line.
 //        Scanner scan = new Scanner(System.in);
@@ -88,25 +87,44 @@ public class Solution {
         // You are given q queries in the form of a, b, and n. For each query,
         // print the series corresponding to the given a, b, and n values as a
         // single line of n space-separated integers.
-        Scanner in = new Scanner(System.in);
-        int t=in.nextInt();
-        int count = 1;
-        for(int i=0;i<t;i++){
-            int a = in.nextInt();
-            int b = in.nextInt();
-            int n = in.nextInt();
-            arrange(a, b, n);
-        }
-        in.close();
+//        Scanner in = new Scanner(System.in);
+//        int t=in.nextInt();
+//        int count = 1;
+//        for(int i=0;i<t;i++){
+//            int a = in.nextInt();
+//            int b = in.nextInt();
+//            int n = in.nextInt();
+//            arrange(a, b, n);
+//        }
+//        in.close();
+//
+//    }
+//
+//    public static void arrange(int a,int b,int n){
+//        int sum = a+b;
+//        for(int j=1; j<=n; j++){
+//            System.out.print(sum+" ");
+//            sum+=((Math.pow(2,j))*b);
+//        }
+//        System.out.println();
+//    }
 
-    }
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
 
-    public static void arrange(int a,int b,int n){
-        int sum = a+b;
-        for(int j=1; j<=n; j++){
-            System.out.print(sum+" ");
-            sum+=((Math.pow(2,j))*b);
+        for (int i = 0; i < t; i++) {
+
+            try {
+                long x = sc.nextLong();
+                System.out.println(x + " can be fitted in:");
+                if (x >= -128 && x <= 127) System.out.println("* byte\n* short\n* int\n* long");
+                else if (x >= -32768 && x <= 32767)System.out.println("* short\n* int\n* long");
+                else if (x >= -2147483648 && x <= 2147483647) System.out.println("* int\n* long");
+                else if (x >= -9223372036854775808L && x <= 9223372036854775807L) System.out.println("* long");
+            } catch (Exception e) {
+                System.out.println(sc.next() + " can't be fitted anywhere.");
+            }
+
         }
-        System.out.println();
     }
 }
