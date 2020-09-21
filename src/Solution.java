@@ -253,23 +253,38 @@ import java.util.regex.*;
 public class Solution {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        double payment = scanner.nextDouble();
-        scanner.close();
+//        Scanner scanner = new Scanner(System.in);
+//        double payment = scanner.nextDouble();
+//        scanner.close();
+//
+//        NumberFormat usFormat = NumberFormat.getCurrencyInstance(Locale.US);
+//        NumberFormat indiaFormat = NumberFormat.getCurrencyInstance(new Locale("EN", "IN"));
+//        NumberFormat chinaFormat = NumberFormat.getCurrencyInstance(Locale.CHINA);
+//        NumberFormat franceFormat = NumberFormat.getCurrencyInstance(Locale.FRANCE);
+//
+//        String us = usFormat.format(payment);
+//        String india = indiaFormat.format(payment);
+//        String china = chinaFormat.format(payment);
+//        String france = franceFormat.format(payment);
+//
+//        System.out.println("US: " + us);
+//        System.out.println("India: " + india);
+//        System.out.println("China: " + china);
+//        System.out.println("France: " + france);
 
-        NumberFormat usFormat = NumberFormat.getCurrencyInstance(Locale.US);
-        NumberFormat indiaFormat = NumberFormat.getCurrencyInstance(new Locale("EN", "IN"));
-        NumberFormat chinaFormat = NumberFormat.getCurrencyInstance(Locale.CHINA);
-        NumberFormat franceFormat = NumberFormat.getCurrencyInstance(Locale.FRANCE);
+        Scanner in = new Scanner(System.in);
+        int n=in.nextInt();
+        in.nextLine();
+        for(int i=0;i<n;i++) {
+            String name=in.nextLine();
+            int phone=in.nextInt();
+            in.nextLine();
+            if (name.equalsIgnoreCase(i)) {
 
-        String us = usFormat.format(payment);
-        String india = indiaFormat.format(payment);
-        String china = chinaFormat.format(payment);
-        String france = franceFormat.format(payment);
-
-        System.out.println("US: " + us);
-        System.out.println("India: " + india);
-        System.out.println("China: " + china);
-        System.out.println("France: " + france);
+            }
+        }
+        while(in.hasNext()) {
+            String s=in.nextLine();
+        }
     }
 }
