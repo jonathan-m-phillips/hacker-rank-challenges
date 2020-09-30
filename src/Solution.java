@@ -1,12 +1,3 @@
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.math.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
-
 //public class Solution {
 
 
@@ -249,10 +240,10 @@ import java.util.regex.*;
 
 //  }
 //}
-
-public class Solution {
-
-    public static void main(String[] args) {
+//
+//public class Solution {
+//
+//    public static void main(String[] args) {
 //        Scanner scanner = new Scanner(System.in);
 //        double payment = scanner.nextDouble();
 //        scanner.close();
@@ -272,19 +263,86 @@ public class Solution {
 //        System.out.println("China: " + china);
 //        System.out.println("France: " + france);
 
-        Scanner in = new Scanner(System.in);
-        int n=in.nextInt();
-        in.nextLine();
-        for(int i=0;i<n;i++) {
-            String name=in.nextLine();
-            int phone=in.nextInt();
-            in.nextLine();
-            if (name.equalsIgnoreCase(i)) {
+//        Scanner in = new Scanner(System.in);
+//        int n=in.nextInt();
+//        in.nextLine();
+//        for(int i=0;i<n;i++) {
+//            String name=in.nextLine();
+//            int phone=in.nextInt();
+//            in.nextLine();
+//            if (name.equalsIgnoreCase(i)) {
+//
+//            }
+//        }
+//        while(in.hasNext()) {
+//            String s=in.nextLine();
+//        }
+//    }
+//}
 
-            }
-        }
-        while(in.hasNext()) {
-            String s=in.nextLine();
-        }
-    }
-}
+
+// ------------------------------------------
+
+//public class Solution {
+//    public static String reverse (String input) {
+//        if (input == null || input.isEmpty()) {
+//            return input;
+//        }
+//        return input.charAt(input.length() - 1) + reverse(input.substring(0, input.length() - 1));
+//    }
+//
+//    public static boolean isPalindromeString(String string) {
+//        String reverse = reverse(string).toLowerCase();
+//        return string.toLowerCase().equals(reverse);
+//    }
+//
+//    public static void main(String[] args) {
+//        System.out.println(isPalindromeString("anna"));
+//        System.out.println(isPalindromeString("Kayak"));
+//        System.out.println(isPalindromeString("James"));
+//        System.out.println(isPalindromeString("Table"));
+//    }
+//}
+
+// ---------------------------------------------------------
+
+//public class Solution {
+//    public static void fizzBuzz(int num) {
+//        for (int i = 1; i <= num; i++) {
+//            if ((i % 3 == 0) && (i % 5 == 0)) {
+//                System.out.println("FizzBuzz");
+//            } else if (i % 3 == 0) {
+//                System.out.println("Fizz");
+//            } else if (i % 5 == 0) {
+//                System.out.println("Buzz");
+//            } else {
+//                System.out.println(i);
+//            }
+//        }
+//    }
+//
+//    public static void main(String[] args) {
+//        fizzBuzz(20);
+//    }
+//}
+
+// ------------------------------------------------------
+
+//public class Solution {
+//    static int fibonacci(int n) {
+//        int fibonacci[] = new int[n + 2];
+//
+//        fibonacci[0] = 0;
+//        fibonacci[1] = 1;
+//
+//        for (int i = 2; i <= n; i++) {
+//            fibonacci[i] = fibonacci[i-1] + fibonacci[i-2];
+//        }
+//        return fibonacci[n];
+//    }
+//
+//    public static void main(String[] args) {
+//        int n = 15;
+//        System.out.println(fibonacci(n));
+//    }
+//}
