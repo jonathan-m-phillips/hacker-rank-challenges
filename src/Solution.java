@@ -393,20 +393,57 @@
 //The first line contains a single string denoting .
 //The second line contains two space-separated integers denoting the respective values of Start and End.
 
-import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
+//import java.io.*;
+//import java.util.*;
+//import java.text.*;
+//import java.math.*;
+//import java.util.regex.*;
+//
+//public class Solution {
+//
+//    public static void main(String[] args) {
+//        Scanner in = new Scanner(System.in);
+//        String S = in.next();
+//        int start = in.nextInt();
+//        int end = in.nextInt();
+//
+//        System.out.println(S.substring(start,end));
+//    }
+//}
+
+import java.util.Scanner;
 
 public class Solution {
 
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        String S = in.next();
-        int start = in.nextInt();
-        int end = in.nextInt();
+    public static String getSmallestAndLargest(String s, int k) {
+        String smallest = "";
+        String largest = "";
 
-        System.out.println(S.substring(start,end));
+        // Complete the function
+        // 'smallest' must be the lexicographically smallest substring of length 'k'
+        // 'largest' must be the lexicographically largest substring of length 'k'
+
+        for(int i = 0;i<=s.length()-k;i++){
+            String subString = s.substring(i,i+k);
+            if(i == 0){
+                smallest = subString;
+            }
+            if(subString.compareTo(largest)>0){
+                largest = subString;
+            }else if(subString.compareTo(smallest)<0)
+                smallest = subString;
+        }
+
+        return smallest + "\n" + largest;
+    }
+
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String s = scan.next();
+        int k = scan.nextInt();
+        scan.close();
+
+        System.out.println(getSmallestAndLargest(s, k));
     }
 }
