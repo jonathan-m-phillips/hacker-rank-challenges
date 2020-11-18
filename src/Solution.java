@@ -283,6 +283,38 @@
 
 // ------------------------------------------
 
+public class Solution {
+    public static String reverse (String input) {
+        if (input == null || input.isEmpty()) {
+            return input;
+        }
+        return input.charAt(input.length() - 1) + reverse(input.substring(0, input.length() - 1));
+    }
+
+    public static boolean isPalindromeString(String string) {
+        String reverse = reverse(string).toLowerCase();
+        return string.toLowerCase().equals(reverse);
+    }
+
+    public static String YesNo (String s) {
+        if (isPalindromeString(s) == true) {
+            return "Yes";
+        } else {
+            return "No";
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isPalindromeString("anna"));
+        System.out.println(isPalindromeString("Kayak"));
+        System.out.println(isPalindromeString("James"));
+        System.out.println(isPalindromeString("Table"));
+        System.out.println(YesNo("anna"));
+        System.out.println(YesNo("Kayak"));
+        System.out.println(YesNo("James"));
+    }
+}
+
 //public class Solution {
 //    public static String reverse (String input) {
 //        if (input == null || input.isEmpty()) {
@@ -294,13 +326,6 @@
 //    public static boolean isPalindromeString(String string) {
 //        String reverse = reverse(string).toLowerCase();
 //        return string.toLowerCase().equals(reverse);
-//    }
-//
-//    public static void main(String[] args) {
-//        System.out.println(isPalindromeString("anna"));
-//        System.out.println(isPalindromeString("Kayak"));
-//        System.out.println(isPalindromeString("James"));
-//        System.out.println(isPalindromeString("Table"));
 //    }
 //}
 
@@ -411,39 +436,40 @@
 //    }
 //}
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
-public class Solution {
+//public class Solution {
+//
+//    public static String getSmallestAndLargest(String s, int k) {
+//        String smallest = "";
+//        String largest = "";
+//
+//        // Complete the function
+//        // 'smallest' must be the lexicographically smallest substring of length 'k'
+//        // 'largest' must be the lexicographically largest substring of length 'k'
+//
+//        for(int i = 0;i<=s.length()-k;i++){
+//            String subString = s.substring(i,i+k);
+//            if(i == 0){
+//                smallest = subString;
+//            }
+//            if(subString.compareTo(largest)>0){
+//                largest = subString;
+//            }else if(subString.compareTo(smallest)<0)
+//                smallest = subString;
+//        }
+//
+//        return smallest + "\n" + largest;
+//    }
+//
+//
+//    public static void main(String[] args) {
+//        Scanner scan = new Scanner(System.in);
+//        String s = scan.next();
+//        int k = scan.nextInt();
+//        scan.close();
+//
+//        System.out.println(getSmallestAndLargest(s, k));
+//    }
+//}
 
-    public static String getSmallestAndLargest(String s, int k) {
-        String smallest = "";
-        String largest = "";
-
-        // Complete the function
-        // 'smallest' must be the lexicographically smallest substring of length 'k'
-        // 'largest' must be the lexicographically largest substring of length 'k'
-
-        for(int i = 0;i<=s.length()-k;i++){
-            String subString = s.substring(i,i+k);
-            if(i == 0){
-                smallest = subString;
-            }
-            if(subString.compareTo(largest)>0){
-                largest = subString;
-            }else if(subString.compareTo(smallest)<0)
-                smallest = subString;
-        }
-
-        return smallest + "\n" + largest;
-    }
-
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String s = scan.next();
-        int k = scan.nextInt();
-        scan.close();
-
-        System.out.println(getSmallestAndLargest(s, k));
-    }
-}
