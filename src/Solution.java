@@ -532,33 +532,64 @@ import java.util.Scanner;
 
 public class Solution {
 
+//    static boolean isAnagram(String a, String b) {
+//
+//        //lower case string
+//        a = a.toLowerCase();
+//        b = b.toLowerCase();
+//
+//        // anagram boolean set to false
+//        boolean anagram = false;
+//
+//        // setting strings to CharArray
+//        char[] aArray = a.toCharArray();
+//        Arrays.sort(aArray);
+//        char[] bArray = b.toCharArray();
+//        Arrays.sort(bArray);
+//
+//        // creating new string with CharArray
+//        String A = new String (aArray);
+//        String B = new String (bArray);
+//
+//        // if the CharArrays equal, anagram true
+//        if (A.equals(B)) {
+//            anagram = true;
+//        }
+//        return anagram;
+//    }
+
+    static int NO_OF_CHARS = 256;
+
     static boolean isAnagram(String a, String b) {
+        String alower = a.toLowerCase();
+        String blower = b.toLowerCase();
 
-        //lower case string
-        a = a.toLowerCase();
-        b = b.toLowerCase();
+        char[] str1 = alower.toCharArray();
+        char[] str2 = blower.toCharArray();
 
-        // anagram boolean set to false
-        boolean anagram = false;
-
-        // setting strings to CharArray
-        char[] aArray = a.toCharArray();
-        Arrays.sort(aArray);
-        char[] bArray = b.toCharArray();
-        Arrays.sort(bArray);
-
-        // creating new string with CharArray
-        String A = new String (aArray);
-        String B = new String (bArray);
-
-        // if the CharArrays equal, anagram true
-        if (A.equals(B)) {
-            anagram = true;
+        int count1[] = new int[NO_OF_CHARS];
+        int count2[] = new int[NO_OF_CHARS];
+        for (int c = 0; c < NO_OF_CHARS; c++) {
+            count1[c] = 0;
+            count2[c] = 0;
         }
-        return anagram;
+
+        int i;
+        for (i = 0; i < str1.length && i < str2.length; i++) {
+            count1[str1[i]]++;
+            count2[str2[i]]++;
+        }
+
+        if (str1.length != str2.length)
+            return false;
+
+        for (i = 0; i < NO_OF_CHARS; i++)
+            if (count1[i] != count2[i])
+                return false;
+        return true;
     }
 
-    public static void main(String[] args) {
+        public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
         String a = scan.next();
