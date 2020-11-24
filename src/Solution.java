@@ -283,38 +283,6 @@
 
 // ------------------------------------------
 
-public class Solution {
-    public static String reverse (String input) {
-        if (input == null || input.isEmpty()) {
-            return input;
-        }
-        return input.charAt(input.length() - 1) + reverse(input.substring(0, input.length() - 1));
-    }
-
-    public static boolean isPalindromeString(String string) {
-        String reverse = reverse(string).toLowerCase();
-        return string.toLowerCase().equals(reverse);
-    }
-
-    public static String YesNo (String s) {
-        if (isPalindromeString(s) == true) {
-            return "Yes";
-        } else {
-            return "No";
-        }
-    }
-
-    public static void main(String[] args) {
-        System.out.println(isPalindromeString("anna"));
-        System.out.println(isPalindromeString("Kayak"));
-        System.out.println(isPalindromeString("James"));
-        System.out.println(isPalindromeString("Table"));
-        System.out.println(YesNo("anna"));
-        System.out.println(YesNo("Kayak"));
-        System.out.println(YesNo("James"));
-    }
-}
-
 //public class Solution {
 //    public static String reverse (String input) {
 //        if (input == null || input.isEmpty()) {
@@ -327,7 +295,26 @@ public class Solution {
 //        String reverse = reverse(string).toLowerCase();
 //        return string.toLowerCase().equals(reverse);
 //    }
+//
+//    public static String YesNo (String s) {
+//        if (isPalindromeString(s) == true) {
+//            return "Yes";
+//        } else {
+//            return "No";
+//        }
+//    }
+//
+//    public static void main(String[] args) {
+//        System.out.println(isPalindromeString("anna"));
+//        System.out.println(isPalindromeString("Kayak"));
+//        System.out.println(isPalindromeString("James"));
+//        System.out.println(isPalindromeString("Table"));
+//        System.out.println(YesNo("anna"));
+//        System.out.println(YesNo("Kayak"));
+//        System.out.println(YesNo("James"));
+//    }
 //}
+
 
 // ---------------------------------------------------------
 
@@ -472,4 +459,79 @@ public class Solution {
 //        System.out.println(getSmallestAndLargest(s, k));
 //    }
 //}
+
+//public class Solution {
+//    // coinsLength if the number of coins in the coins array
+//    static int minimumCoins(int coins[], int coinsLength, int value) {
+//        if (value == 0) {
+//            return 0;
+//        }
+//
+//        // Initialize result
+//        int result = Integer.MAX_VALUE;
+//
+//        // Trying every coin that has a smaller value than
+//        for (int i = 0; i < coinsLength; i++) {
+//
+//            if (coins[i] <= value) {
+//
+//                int subResults = minimumCoins(coins, coinsLength, value - coins[i]);
+//
+//                // Check for INT_MAX to avoid overflow and see if result can be minimized
+//                if (subResults != Integer.MAX_VALUE && subResults + 1 < result) {
+//                    result = subResults + 1;
+//                }
+//            }
+//        }
+//
+//        return result;
+//    }
+//
+//    public static void main(String[] args) {
+//        int coins[] = {1, 3, 5};
+//        int coinsLength = coins.length;
+//        int value = 10;
+//        System.out.println("Minimum coins required is " + minimumCoins(coins, coinsLength, value));
+//    }
+//}
+
+import java.nio.charset.IllegalCharsetNameException;
+
+
+public class Solution {
+    static int minimumCoins(int coins[], int coinsLength, int value) {
+        if (value == 0) {
+            return 0;
+        }
+
+        int results = Integer.MAX_VALUE;
+
+        for (int i = 0; i < coinsLength; i++) {
+            if (coins[i] <= value) {
+                int subResults = minimumCoins(coins, coinsLength, value - coins[i]);
+
+                if (subResults != Integer.MAX_VALUE && subResults + 1 < results) {
+                    results = subResults + 1;
+                }
+            }
+        }
+        return results;
+    }
+
+    public static void main(String[] args) {
+        int coins[] = {1, 3, 5};
+        int coinsLength = coins.length;
+        int value = 11;
+        System.out.println(minimumCoins(coins, coinsLength, value));
+    }
+}
+
+
+
+
+
+
+
+
+
 
