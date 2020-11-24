@@ -498,37 +498,76 @@
 import java.nio.charset.IllegalCharsetNameException;
 
 
+//public class Solution {
+//    static int minimumCoins(int coins[], int coinsLength, int value) {
+//        if (value == 0) {
+//            return 0;
+//        }
+//
+//        int results = Integer.MAX_VALUE;
+//
+//        for (int i = 0; i < coinsLength; i++) {
+//            if (coins[i] <= value) {
+//                int subResults = minimumCoins(coins, coinsLength, value - coins[i]);
+//
+//                if (subResults != Integer.MAX_VALUE && subResults + 1 < results) {
+//                    results = subResults + 1;
+//                }
+//            }
+//        }
+//        return results;
+//    }
+//
+//    public static void main(String[] args) {
+//        int coins[] = {1, 3, 5};
+//        int coinsLength = coins.length;
+//        int value = 11;
+//        System.out.println(minimumCoins(coins, coinsLength, value));
+//    }
+//}
+
+
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Solution {
-    static int minimumCoins(int coins[], int coinsLength, int value) {
-        if (value == 0) {
-            return 0;
+
+    static boolean isAnagram(String a, String b) {
+
+        //lower case string
+        a = a.toLowerCase();
+        b = b.toLowerCase();
+
+        // anagram boolean set to false
+        boolean anagram = false;
+
+        // setting strings to CharArray
+        char[] aArray = a.toCharArray();
+        Arrays.sort(aArray);
+        char[] bArray = b.toCharArray();
+        Arrays.sort(bArray);
+
+        // creating new string with CharArray
+        String A = new String (aArray);
+        String B = new String (bArray);
+
+        // if the CharArrays equal, anagram true
+        if (A.equals(B)) {
+            anagram = true;
         }
-
-        int results = Integer.MAX_VALUE;
-
-        for (int i = 0; i < coinsLength; i++) {
-            if (coins[i] <= value) {
-                int subResults = minimumCoins(coins, coinsLength, value - coins[i]);
-
-                if (subResults != Integer.MAX_VALUE && subResults + 1 < results) {
-                    results = subResults + 1;
-                }
-            }
-        }
-        return results;
+        return anagram;
     }
 
     public static void main(String[] args) {
-        int coins[] = {1, 3, 5};
-        int coinsLength = coins.length;
-        int value = 11;
-        System.out.println(minimumCoins(coins, coinsLength, value));
+
+        Scanner scan = new Scanner(System.in);
+        String a = scan.next();
+        String b = scan.next();
+        scan.close();
+        boolean ret = isAnagram(a, b);
+        System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
     }
 }
-
-
-
-
 
 
 
